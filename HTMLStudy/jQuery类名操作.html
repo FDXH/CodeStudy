@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类名的操作</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <style>
+        .item1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+        .item2{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        //通过jQuery来给元素添加class属性
+        $('div').addClass('item1 item2');
+        //通过jQuery删除class属性，如果不指定删除的类名，就删除所有的
+        $('div').removeClass('item2');
+    </script>
+</body>
+</html>

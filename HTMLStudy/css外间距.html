@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>css外间距</title>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            border:10px solid yellow;
+        }
+
+        .item1{
+            background-color:green;
+
+            /*设置item1的底部的外间距，让他距离item2 20px*/
+            margin-bottom:20px;
+        }
+
+        .item2{
+            background-color:red;
+            /*margin:10px 20px 30px 40px;*/
+
+        }
+
+        .item3{
+            background-color:blue;
+            /*margin使用技巧，水平居中*/
+            /*margin:0 auto;*/
+
+            /*margin设置负值，让边框合并*/
+            margin-top:-10px;
+        }
+    </style>
+</head>
+<body>
+    <!--外间距：设置元素距离周围元素的间距-->
+    <div class="item1"></div>
+    <div class="item2"></div>
+    <div class="item3"></div>
+</body>
+</html>

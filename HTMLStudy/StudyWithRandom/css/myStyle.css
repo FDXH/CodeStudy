@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    padding: 0;
+    color: red;
+    background: #16a085;
+}
+.text-center{
+    color: white;
+}
+h1{
+    margin: 50px;
+}
+.box{
+    padding: 40px 30px;
+    width: 500px;
+    position: relative;
+    display: table;
+    background: white;
+    margin: 5% auto auto auto;
+    border-radius: 8px;
+}
+.box .buttons{
+    padding-top: 20px;
+}
+.box .buttons .button-new{
+    background: red;
+    color: white;
+    float: right;
+}
+.box .quote-text p{
+    font-size: 30px;
+    font-family: STKaiti;
+}
+.box .quote-author{
+    text-align: right;
+    font-family: STXingkai;
+    font-size: 20px;
+}
+.footer{
+    width: 500px;
+    display: block;
+    margin: 20px auto auto auto;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+}
+.footer a{
+    text-decoration: none;
+    color: white;
+}

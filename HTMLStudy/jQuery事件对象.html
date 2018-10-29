@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>event</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // event 事件对象 通过此对象可以获取鼠标当前位置
+        $('div').click(function(e){
+            console.log('单击事件触发');
+            // 获取鼠标单击时相对于窗口的位置
+            console.log(e.clientX,e.clientY);
+        });
+
+        // 通过事件对象获取鼠标的实时位置
+        $('div').mousemove(function(e){
+            console.log(e.clientX,e.clientY);
+        });
+
+        // 键盘按下事件 keydown 键盘按下时触发
+        $(window).keydown(function (e) {
+            console.log('键盘按下');
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>节点操作</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <style>
+        *{margin: 0;padding: 0}
+        .wrap{
+            width: 800px;
+            height: 600px;
+            border: 1px solid red;
+        }
+        .item{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            border-radius: 50%;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <button>append()</button>
+    <button>appendTo()</button>
+    <button>prepend()</button>
+    <button>after()</button>
+    <button>before()</button>
+    <button>删除节点</button>
+    <button>清空</button>
+    <button>clone()</button>
+    <button>注意</button>
+    
+    <div class="wrap"></div>
+    <script>
+        // 绑定事件
+        $('button').eq(0).click(function () {
+            var oDiv = $('<div class="item"></div>');
+            oDiv.css('background','rgb('+ rund(0,255)+','+ rund(0,255)+','+ rund(0,255)+'');
+            // 通过append方法插入元素
+                // 在元素的内部的尾部插入元素
+            $('.wrap').append(oDiv);
+        });
+
+        $('button').eq(1).click(function () {
+            var oDiv = $('<div class="item"></div>');
+            oDiv.css('background','rgb('+ rund(0,255)+','+ rund(0,255)+','+ rund(0,255)+'');
+            // 通过appendTo方法插入元素
+                // 将新的元素插入到指定的元素当中
+            oDiv.appendTo($('.wrap'));
+        });
+
+        $('button').eq(2).click(function () { 
+            var oDiv = $('<div class="item"></div>');
+            oDiv.css('background','rgb('+ rund(0,255)+','+ rund(0,255)+','+ rund(0,255)+'');
+            // 通过prepend方法插入元素
+                // 将新的元素插入到元素头部
+                // 同理还有prependTo（）；
+            $('.wrap').prepend(oDiv);
+        });
+
+        // 在元素尾部的外面插入元素
+        $('button').eq(3).click(function () { 
+            var oDiv = $('<div class="item"></div>');
+            oDiv.css('background','rgb('+ rund(0,255)+','+ rund(0,255)+','+ rund(0,255)+'');
+            // 通过after（）方法插入元素
+                // 将新的元素插入到元素尾部的外面
+                // 同理还有insertAfter（）；
+            $('.wrap').after(oDiv);
+        });
+
+        $('button').eq(4).click(function () { 
+            var oDiv = $('<div class="item"></div>');
+            oDiv.css('background','rgb('+ rund(0,255)+','+ rund(0,255)+','+ rund(0,255)+'');
+            // 通过before（）方法插入元素
+                // 将新的元素插入到元素头部的外面
+                // 同理还有insertBefore（）；
+            $('.wrap').before(oDiv);
+        });
+
+        // 删除节点
+        $('button').eq(5).click(function () { 
+            $('.wrap').remove();//它可以把自己删除
+            
+        });
+        
+        $('button').eq(6).click(function () { 
+            $('.wrap').empty();//只是删除指定元素内部的元素节点，不会把自己删除
+            
+        });
+
+        $('button').eq(7).click(function () { 
+            // 克隆元素
+                // 注意：里面如果单纯的只是为了克隆元素，那么不需要加上true
+                //       如果需要连同元素身上的事件一次克隆，那么就加上true
+            var newBtn = $('button').eq(7).clone(true);
+            // 将克隆的元素插入到wrap前面的外部
+            $('.wrap').before(newBtn);
+            
+        });
+
+        // 节点操作注意事项
+            // 在插入不是新元素的时候要先进行clone再进行插入操作
+        $('button').eq(8).click(function () { 
+            // 先克隆再插入
+            $('.wrap').append($('button').eq(0).clone());
+            
+        });
+
+
+        // 定义随机数函数
+        function rund(m,n){
+            return Math.floor(Math.random() * (n-m+1) + m);
+        }
+    </script>
+</body>
+</html>

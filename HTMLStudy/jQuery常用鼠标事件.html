@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常用的鼠标事件</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // 单击事件 click 双击事件：dbclick
+        // 鼠标按下事件 mousedown
+        $('div').mousedown(function(){
+            console.log("鼠标按下了");
+        });
+
+        // 鼠标抬起事件
+        $("div").mouseup(function(){
+            console.log("鼠标抬起");
+        });
+
+        // 鼠标移入事件
+        $('div').mouseover(function(){
+            console.log("鼠标移入");
+            $('div').css("background","blue");
+        });
+        // 鼠标移出事件 mouseout
+        $('div').mouseout(function(){
+            console.log("鼠标移出");
+            $('div').css('background','red');
+        });
+
+        //鼠标移动事件 mousemove
+        $('div').mousemove(function(){
+            console.log("鼠标正在移动");
+        })
+    </script>
+</body>
+</html>

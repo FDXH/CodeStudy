@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        #effect {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .highlight{
+            background-color: red;
+            width: 200px !important;
+        }
+        .shrink{
+            background-color: gray;
+            width: 50px !important;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .black{
+            background-color: black;
+        }
+        .text-color{
+            color: yellow;
+        }
+        
+        .visible{
+            width: 100px;
+            height: 50px;
+        }
+        .process{
+            height: 20px;
+            background: orange;
+            width: 1px;
+        }
+        .process-bar{
+            height: 20px;
+            width: 200px;
+            border: 1px black solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="exercise">
+        <p>1</p>
+        <div>
+            <button @click="startEffect">Start effect</button>
+            <div id="effect" :class="{highlight:attach,shrink:!attach}"></div>
+        </div>
+        <p>2</p>
+        <div :class="['blue','text-color']">I got no class :</div>
+        <p>3</p>
+        <div>
+            <input type="text" v-model="userClasses">
+            <div :class="[{visible:true}, userClasses]"></div>
+        </div>
+        <p>4</p>
+        <div>
+            <input type="text" v-model="userClasses">
+            <input type="text" v-model="isVisible">
+            <div :class="[{visible:isVisible}, userClasses]"></div>
+        </div>
+        <p>5</p>
+        <div>
+            <input type="text" v-model="color">
+            <div class="visible" :style="background"></div>
+        </div>
+        <p>6</p>
+        <div>
+            <button @click="startProgress">Start Progress</button>
+            <div class="process-bar">
+                <div class="process" :style="{width:widths + 'px'}"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#exercise',
+            data:{
+                attach: true,
+                userClasses: '',
+                isVisible: true,
+                color : "black" ,
+                height : "10px",
+                widths : 1
+            },
+            methods:{
+                startEffect: function() {
+                    var vm = this;
+                    setInterval(function(){
+                        vm.attach = !vm.attach;
+                    },1000);
+                },
+                startProgress: function() {
+                    var vm = this;
+                    setInterval(function(){
+                        vm.widths += 1;
+                        if(vm.widths >= 200){
+              ;              vm.widths = 200;
+                        }
+                    },20);
+                }
+            },
+            computed:{
+                background: function(){
+                    return {
+                        backgroundColor:this.color
+                    };
+                }
+            }
+        })
+    </script>
+</body>
+</html>

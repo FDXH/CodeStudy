@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>练习</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="exercise">
+        <p>1</p>
+        <div>
+            <button @click="show = !show">Toggle</button>
+            <p v-if="show">you either see me ...</p>
+            <p v-else>...or me</p>
+        </div>
+
+        <p>2</p>
+        <ul>
+            <li v-for="(fruit,i) in fruits">{{ fruit }} ({{ i }})</li>
+        </ul>
+
+        <p>3</p>
+        <ul>
+            <div v-for="(v, k, i) in obj">{{ k }} : {{ v }} ({{ i }})</div>
+        </ul>
+
+        <p>4</p>
+        <ul>
+            <li v-for="value in arrs">
+                <template v-if="Array.isArray(value)">
+                    <div v-for="i in value">{{ i }}</div>
+                </template>
+                <template v-else>
+                    {{ value }}
+                </template>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#exercise',
+            data: {
+                show: true,
+                fruits:['apple','orange','banan'],
+                obj: {
+                    title: 'Lord of the Rings',
+                    author: 'J.R.R. Tolkiens',
+                    books: '3' 
+                },
+                persons:[
+                    {name: 'xiehai', age: 22, color: 'red'},
+                    {name: 'luochao', age: 24, color: 'blue'}
+                ],
+                arrs: {
+                    name: 'TESTOBJECT',
+                    data:[1.67, 1.33, 0.98, 2.21]
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

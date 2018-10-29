@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML常用的行级元素</title>
+</head>
+<body>
+    <!--链接标签:
+        a标签 href属性，跟的是要跳转的网址
+                target:_blank  在新窗口打开连接的页面
+        -->
+    <a href="http://www.baidu.com">百度</a>
+    <!--路径问题 在实际开发当中简易使用相对路径-->
+    <a href="./跳转测试文件.html" target="_blank">跳转到本地文件</a>
+    <!--通过a标签制作锚点-->
+    <!--图像标签：
+            img（单标签 不需要闭合）
+                src:图片的地址（网络资源或者本地资源）
+                alt:用于图片加载失败的替代文字(必须存在)
+                title:鼠标悬停在图片上的提示信息（可写可不写）
+                width:设置图片的宽度
+                height：设置图片的高度
+                注意：一般我们只给图片宽度或者只设置高度，其它会等比例进行缩小或放大
+        -->
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532681000845&di=e239dcb99830f255adaa2f3fcf48b9f9&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fcdbf6c81800a19d8e395f22339fa828ba61e4605.jpg"
+         width="200px" alt="这是图片标签" title="这是狗的图片">
+    <img src="./QQ图片20171028114739.png" height="200px" alt="这是抽奖图片">
+    <br>
+
+
+    <!--文本标签：
+        加粗b strong：strong 具有强调意义
+        斜体i em：em具有强调意义
+        -->
+    <b>img（单标签 不需要闭合）</b><br>
+    <i>src:图片的地址（网络资源或者本地资源）</i><br>
+    <strong>alt:用于图片加载失败的替代文字(必须存在)</strong><br>
+    <em>title:鼠标悬停在图片上的提示信息（可写可不写）</em><br>
+    width:设置图片的宽度<br>
+    height：设置图片的高度<br>
+
+
+    <!--soan 无语义的行级元素 一般span标签也是配合css使用 来设置文本当中一部分内容-->
+    <span style="color:red">注意：一般我们只给图片宽度或者只设置高度，其它会等比例进行缩小或放大</span>
+    <br>
+
+    <!--html当中的实体字符 &gt;:大于号，&lt;:小于号等等-->
+    1&gt;2<br>
+    1&lt;2<br>
+
+    <!--form标签来划定一个表单趋于
+        action：数据的提交地址
+        method：提交方式 get post
+                表单提交默认是以get方式进行数据的传输
+                get：通过url传输数据，数据会显示在url地址栏当中
+                     传输数据是有大小限制的，根据浏览器的不同，数据大小不同
+                     相对来说不安全
+                post：数据不通过url地址传参，相对来说安全
+                      数据传说没有具体的大小限制
+                      一般表单指定使用post方式提交数据
+        enctype：如果表单当中有文件上传，必须添加这个属性
+                    指定属性值为"multipart/form-data" 用于文件转码
+        
+        -->
+    <form action="" method="" enctype="multipart/form-data">
+        <!--普通文本输入框 
+            表单控件:
+                type:指定我们的表单类型（普通文本  密码框  单选框 .......）
+                必须要填写name属性 作为数据的键
+            -->
+        用户名：<input type="text" name="username"  placeholder="请输入用户名"/><br>
+         密 码：<input type="password" name="password"/><br>
+        <!--单选框 type="radio" 必须有那么属性,并且一组单选框name属性的值必须相同-->
+        性别：<input type="radio" name="sex" value="1">男  <input type="radio" name="sex" value="0">女<br>
+        
+        <!--
+            多选框 type="checkbox" 必须指定name属性和value属性，并且一组多选框name属性的值要相同    
+        -->
+        爱好：<br>
+              <input type="checkbox" name="hobby" value=" "> 篮球 <br>
+              <input type="checkbox" name="hobby" value=" "> 足球 <br>
+              <input type="checkbox" name="hobby" value=" "> 乒乓球 <br>
+        学历：<br>
+              <select name="xl">
+                  <option value="0">小学</option>
+                  <option value="1">初中</option>
+                  <option value="2">高中</option>
+                  <option value="3">大学</option>
+              </select>
+
+        <br>
+        <!--文件上传-->
+        请选择上传文件：<input type="file" name="file">
+
+        <br>
+        请输入个人说明：<br>
+        <textarea name="text" id="">请输入个人信息</textarea>
+        <br>
+        <!--按钮 type="submit"-->
+        <input type="submit" value="确定">&nbsp;
+        <button>提交</button> &nbsp
+        <input type="reset" value="重置">
+
+        <!--隐藏域 hidden 不需要用户查看和填写的信息-->
+        <input type="hidden" name="id" value="0" >
+
+        <!--表单常用属性:
+            name属性：表单项名，用于存储内容值
+            value属性：输入的值
+            disabled属性：禁用属性
+            readonly属性：只读
+            checked属性：选择指定默认选项
+            placeholder：提示
+            -->
+        
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>freeCodeCampTest</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+</head>
+<body>
+    <script>
+        function rot13(str) {
+            var a = str.split('');
+            var flag = 0;
+            for(var i = 0; i < a.length; i++){
+                if(a[i] != ' '){
+                    flag = a[i].charCodeAt(0) - 13;
+                    if(flag >= 65){
+                        a[i] = String.fromCharCode(flag);
+                    }
+                    else{
+                        flag = (90 - (65-flag)) + 1;
+                        a[i] = String.fromCharCode(flag);
+                    }
+                }
+            }
+            str = a.join('');
+            return str;
+        }
+        console.log(rot13("SERR PBQR PNZC"));
+    </script>
+</body>
+</html>

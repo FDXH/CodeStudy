@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父子级关系选择器</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="item1">item1</div>
+        <div class="item2">item2</div>
+        <div class="item3">item3</div>
+    </div>
+    <script>
+        //检测jquery文件是否导入成功
+        //alert($);
+
+        //通过父级元素获取子元素
+        //获取指定元素里面的所有子元素
+        console.log($('.wrap').children());
+        //获取第一个子元素
+        console.log($('.wrap div:first-child'));
+        //获取最后一个元素
+        console.log($('.wrap div:last-child'));
+        //通过元素个数获取指定父级元素下的指定子元素,个数是从1开始
+        console.log($('.wrap div:nth-child(2)'));
+
+
+        //获取同级元素
+        //通过同级元素来获取同级的上一个元素
+        console.log($('.item2').prev());
+        //通过同级元素来获取同级的下一个元素
+        console.log($('.item2').next());
+        //获取所有的同级元素,不包含自己
+        console.log($('item2').siblings());
+
+        
+        //通过子元素来获取父元素
+        //通过指定的子元素来获取父元素
+        console.log($('.item2').parent());
+        //通过制定元素获取先辈级
+        console.log($('.item1').parents());
+        //在父级元素中查找指定的子元素,如果不指定子元素，获取不到子元素
+        console.log($('.wrap').find('.item1'));
+    </script>
+</body>
+</html>

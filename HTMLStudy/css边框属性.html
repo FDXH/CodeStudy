@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>设置边框属性</title>
+    <style>
+        .item {
+            width: 200px;
+            height: 200px;
+            /*border设置边框 三种属性书写时不分先后，一个都不能丢*/
+            border: 1px solid #000;
+            /*border:dotted 3px #000;*/
+            /*border:#000 dashed 2px;*/
+            /*单独设置上边框，下边框等*/
+            /*border-top:3px solid #f00;*/
+            /*
+                border-radius设置圆角
+                给一个值是设置四个角的圆角属性
+                如果给四个值，第一个值是左上角，第二个值右上角，第三个值右下角，第四个值左下角
+                如果给两个值，第一个值设置左上和右下角，第二个值设置右上和左下角。
+            */
+            border-radius: 10px;
+            /*
+                box-shadow设置阴影:x轴偏移 y轴偏移 模糊度 扩散程度 inset内阴影 设置或检索对象阴影
+            */
+            box-shadow:10px 10px 20px 10px red;
+        }
+    </style>
+</head>
+<body>
+    <div class="item"></div>
+</body>
+</html>

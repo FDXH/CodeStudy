@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>css的三种基本选择器</title>
+    <style>
+        /*标签选择器 通过标签来设置元素的样式 影响范围最大*/
+        /*div{
+            width:100px;
+            height:100px;
+            background-color:green;
+        }*/
+
+        /*.类选择器 通过class类名来设置元素的样式 可重复*/
+        .item1{
+            width:200px;
+            height:200px;
+            background-color:red;
+        }
+        .item2 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        /*#id选择器 通过id属性的值来设置元素的样式 不可重复*/
+        #box1{
+            width:300px;
+            height:300px;
+            background-color:green;
+        }
+    </style>
+
+    <!--注意：基本三种选择器优先级问题 影响范围越大的选择器优先级越低 id>class>标签选择器-->
+</head>
+<body>
+    <div class="item1"></div>
+    <div class="item2"></div>
+    <div id="box1"></div>
+</body>
+</html>

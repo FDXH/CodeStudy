@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>定位</title>
+    <style>
+        /*清除默认的内外边距*/
+        *{margin:0;padding:0}
+        .box1{
+            width:200px;
+            height:200px;
+            background-color:red;
+            /*margin:0 200px;*/
+            /*通过position:设置元素的定位
+                relative：相对定位
+                    以元素本身位置为参考点进行偏移
+                    不会脱离文档流
+
+            */
+            position:relative;
+            left:100px;
+            top:100px;
+
+            /*设置定位的层级 谁在后面定位谁就在上面
+                改变层级使用z-index
+            */
+            z-index:2;
+
+        }
+        .box2{
+            width:200px;
+            height:200px;
+            background-color:green;
+            /*设置绝对定位
+                position:absolute;
+                以有定位属性的父级为参考点进行偏移，如果父级元素没有定位属性，继续向上一级元素找参考，直到body
+                脱离文档流，不占文档位置
+            */
+            position:absolute;
+            left:100px;
+            top:100px;
+
+        }
+        .box3{
+            width:200px;
+            height:200px;
+            background-color:blue;
+        }
+        .wrap{
+            width:500px;
+            height:500px;
+            margin:0 100px;
+            border:1px solid red;
+            /*添加定位属性*/
+            /*position:relative;*/
+        }
+        .box4{
+            width:80px;
+            height:30px;
+            background-color:yellow;
+            /*绑定定位
+                已浏览器窗口为参考进行定位
+                主要用在：固定在头部的导航栏 返回顶部，网页的侧边栏
+            */
+            position:fixed;
+            bottom:20px;
+            right:20px;
+        }
+    </style>
+</head>
+<body style="height:5000px">
+    <div class="box1">1</div>
+    <!--<div class="box2"></div>
+    <div class="box3"></div>-->
+    <div class="wrap">
+        <div class="box2">2</div>
+    </div>
+    <div class="box4">返回顶部</div>
+</body>
+</html>

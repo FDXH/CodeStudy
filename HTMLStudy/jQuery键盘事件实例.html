@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>键盘事件实例</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <!-- 当按下wasd 键时控制页面的元素对应的上下左右移动 -->
+    <div></div>
+    <script>
+        var L = 0;
+        var T = 0;
+        $(window).keydown(function(e){
+            // a 65 s 83 d 68 w 87对应的值
+            //console.log(e.keyCode);
+            // 判断当前按下的是哪个键
+            var stp = e.keyCode;
+            // 定义元素一次移动的位置
+            switch(stp){
+                case 65:
+                //你按下了a让元素左移动
+                    L -= 5;
+                    $('div').css('left',L + 'px');
+                    break;
+                case 83:
+                //你按下了s让元素下移动
+                    T += 5;
+                    $('div').css('top',T +'px');
+                    break;
+                case 68:
+                //你按下了d让元素右移动
+                    L += 5;
+                    $('div').css('left',L + 'px');
+                    break;
+                case 87:
+                //你按下了w让元素上移动
+                    T -= 5;
+                    $('div').css('top',T +'px');
+                    break;
+            };
+        })
+    </script>
+</body>
+</html>

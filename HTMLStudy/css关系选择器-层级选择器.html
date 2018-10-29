@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>关系选择器</title>
+    <style>
+        /*层级选择器：通过父级元素来设置子级元素的样式，还可以设置子元素的子级样式*/
+        /*层级选择器可以和多种选择器混合使用*/
+        .wrap{
+            width:500px;
+            height:500px;
+            border:1px solid red;
+        }
+        .wrap div{
+            width:500px;
+            height:500px;
+            background-color:red;
+        }
+        .wrap .in{
+            width:200px;
+            height:200px;
+            background-color:green;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="in">
+
+        </div>
+        <div>
+            <div class="in"></div>
+        </div>
+    </div>
+
+</body>
+</html>

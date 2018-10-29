@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取尺寸</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <style>
+        *{margin: 0;padding: 0}
+        .item1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin-left: 100px;
+        }
+        .wrap{
+            width: 800px;
+            height: 800px;
+            border: 1px solid rgb(109, 109, 212);
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="item1"></div>
+    </div>
+    <script>
+        // 获取元素相对于文档的偏移位置,返回的是一个对象，有left属性和top属性
+        var of = $('.item1').offset();
+        console.log(of.left);
+
+        // 获取相对于父级元素的定位位置
+        var l = $('.item1').position();
+        console.log(l);
+
+        // 获取当前文档的滚动距离
+        var sce = $(document).scrollTop();
+        console.log(sce);
+
+        // 获取元素的宽度和高度
+        var w = $(".item1").width();
+        console.log(w);
+
+        // 设置元素的宽度和高度
+        $(".item1").width(150);
+
+        // 获取可视区域的宽度和高度
+        var cw = $(window).width();
+        var ch = $(window).height();
+        console.log(cw,ch);
+
+        // 获取文档的宽度和高度
+        var vrw = $(document).width();
+        var vrh = $(document).height();
+        console.log(vrw,vrh);
+    </script>
+</body>
+</html>

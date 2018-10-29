@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第二章练习</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="exercise">
+        <p>VueJS is pretty cool - {{ name }} {{ age }}岁</p>
+        <p>{{ age * 3 }}</p>
+        <p>Random Number Between 0 And 100: {{ random() }}</p>
+        <div>
+            <img v-bind:src="imgUrl">
+        </div>
+        <div>
+            <input type="text" v-bind:placeholder="name">
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#exercise',
+            data:{
+                name: '谢海',
+                age : 22 ,
+                imgUrl:'http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg'
+            },
+            methods:{
+                random:function(){
+                    return Math.floor(Math.random() * 100);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

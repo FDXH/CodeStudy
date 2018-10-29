@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>并列选择器</title>
+    <style>
+        /*关系选择器：可以同时给多个元素设置相同的样式*/
+        .box1,.box2,.box3{
+            width:200px;
+            height:200px;
+        }
+        .box1{
+            background-color:red;
+        }
+        .box2{
+            background-color:green;
+        }
+        .box3{
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <!--要求以下三个元素的宽度和高度都为200px box1背景颜色为红色  box2背景为绿色 box3为蓝色-->
+    <div class="box1"></div>
+    <p class="box2"></p>
+    <div class="box3"></div>
+</body>
+</html>

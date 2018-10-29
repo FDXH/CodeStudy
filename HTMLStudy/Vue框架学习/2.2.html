@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="increase(2, $event)">Click Me</button>
+        <button v-on:click="counter++">Click Me</button>
+        <p> {{ counter *2 }} </p>
+        <p v-on:mousemove="updateCoordinates">
+            坐标:{{ x }} / {{ y }}
+            - <span v-on:mousemove.stop="">Dead spot</span>
+        </p>
+        <input type="text" v-on:keyup.enter="alertMe">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                counter: 0,
+                x: 0,
+                y: 0
+            },
+            methods:{
+                increase: function (step,event) {
+                    this.counter += step;
+                },
+                updateCoordinates: function (event) {
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                // dummy: function (event){
+                //     event.stopPropagation();
+
+                // }
+                alertMe: function () {
+                    alert('alert');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

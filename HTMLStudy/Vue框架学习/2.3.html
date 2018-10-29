@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>双向绑定及响应式</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+        <p>{{ name }}</p>
+
+        <button v-on:click="counter++">Increase</button>
+        <button v-on:click="counter--">Decrease</button>
+        <button v-on:click="secondCounter++">Increase Second</button>
+        <p>Counter:{{ counter }}</p>
+        <p>Result:{{ result() }} | {{ output }}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: '谢海',
+                counter: 0,
+                secondCounter: 0
+            },
+            computed:{
+                output:function(){
+                    return this.counter < 10 ? 'Smaller 10' : 'Greater 10';  
+                }
+            },
+            watch:{
+                counter:function(value){
+                    var vm = this;
+                    setTimeout(function(){
+                        vm.counter = 0;
+                    }, 2000);
+                }
+            },
+            methods: {
+                // increase: function() {
+                //     this.counter++;
+                //     this.result = this.counter < 10 ? 'Smaller 10' : 'Greater 10';
+                // },
+                // decrease: function() {
+                //     this.counter--;
+                //     this.result = this.counter < 10 ? 'Smaller 10' : 'Greater 10';
+                // },
+                result:function(){
+                    return this.counter < 10 ? 'Smaller 10' : 'Greater 10';    
+                }
+            }
+        })
+    </script>
+</body>
+</html>

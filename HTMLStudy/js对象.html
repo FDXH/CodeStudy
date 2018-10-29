@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //1.通过系统内置的object()去定义自己对象
+    var obj = new Object();
+    obj.name = '张三';
+    obj.sex = '男';
+    obj.say = function(){
+        console.log('说话');
+    }
+    console.log(obj.name);
+
+    //2.直接定义对象
+    var obj2 = {
+        name:'李四',
+        sex:'男',
+        say:function(){
+            console.log('吃饭');
+        }
+    };
+    console.log(obj2.name);
+    obj2.say();
+    //给obj2对象添加成员属性
+    obj2.length = "180cm";
+    console.log(obj2.length);
+
+    //3.通过构造函数来去自定义对象
+    function pen(name,sex){
+        this.name = name;
+        this.sex = sex;
+        this.say = function(){
+            console.log(this);
+        }
+    }
+    //实例化对象
+    var xiehai = new pen('谢海','男');
+    console.log(xiehai.name);
+
+    for(i in xiehai){
+        console.log(xiehai[i]);
+    }
+</script>
+</html>

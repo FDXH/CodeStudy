@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用jQuery操作元素的样式</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+</head>
+<body>
+    <div class="item1"></div>
+    <script>
+        
+        //操作元素样式
+            //先获取元素对象 css方法
+            $('.item1').css('width','100px');
+            $('.item1').css('height','100px');
+            $('.item1').css('background','red');
+            //一次性设置多个元素的样式 css方法传的参数类型的一个样式
+            $('.item1').css({width:'200px',height:'200px',background:'green'});
+
+            //获取元素的样式
+            console.log($('.item1').css('width'));
+    </script>
+</body>
+</html>
