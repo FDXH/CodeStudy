@@ -1,0 +1,41 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #a9d7d1;
+    font-family: 'Raleway', Helvetica, sans-serif;
+}
+
+.panel {
+    margin: 10px 50px;
+}
+
+.center {
+    margin: 0 20%;
+}
+
+.subtitle-size {
+    font-size: 1.5em;
+}
+
+.input-self {
+    display: inline-block;
+    width: 50%;
+}
+
+#self-panel {
+    height: 100px;
+}
+
+#self-subscript {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#button-submit {
+    font-size: 24px;
+    padding: 10px 20px;
+    display: block;
+    margin: 0 auto 20px auto;
+}

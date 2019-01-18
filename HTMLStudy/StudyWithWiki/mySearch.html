@@ -5,8 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>search</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-    
+    <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+
+    <div id="web">
+        <div id="web-index" class="text-center web-index" :class="{'web-search': status}">
+            <i class="fa fa-wikipedia-w fa-5x" v-bind:class="{'sr-only': status}"></i>        
+            <div class="input">
+                <div class="input-group">
+                    <input type="text" class="form-control" aria-describedby="search" v-model="text" v-on:keyup.enter="search">
+                </div>
+            </div>
+            <p><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" class="white-text" v-bind:class="{'sr-only': status}">Click here for a random article</a></p>
+        </div>
+        <div id="web-result">
+            <app-result v-for="result in results" :result="result"></app-result>
+        </div>
+    </div>
+       
 </body>
+
+<script>
+    var resCmp = {
+        props: ['result'],
+        template: '<div class="panel panel-default"><div class="panel-body"><h3>{{ result.title }}</h3><p>{{ result.extract }}</p></div></div>'
+    };
+
+    new Vue({
+        el: '#web',
+        data: {
+            text: '',
+            status: false,
+            results: []
+        },
+        methods: {
+            search() {
+                if (this.text) {
+                    this.status = true;
+                    this.$http.jsonp('https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + this.text + '&callback=JSON_CALLBACK')
+                        .then(res => {
+                            return res.json();
+                        })
+                        .then(data => {
+                            var result = [];
+                            for(let items in data) {
+                                if (items == "query") {
+                                    for (let item in data[items]) {
+                                        if (item == "pages") {
+                                            for(let page in data[items][item]) {
+                                                result.push(data[items][item][page])
+                                            } 
+                                        }
+                                    }
+                                }
+                            }
+                            this.results = result;
+                            console.log(this.results);
+                        });
+                }
+            }
+        },
+        components: {
+            'app-result': resCmp
+        }
+    })
+</script>
 </html>

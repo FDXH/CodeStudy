@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0A1652;
+    color: white;
+    padding: 0 10%;
+}
+
+.web-index {
+    padding-top: 35vh;
+}
+
+.web-search {
+    padding-top: 0;
+}
+
+.fa-wikipedia-w {
+    color: #aaaaaa;
+}
+
+.input-group {
+    width : 25%;
+    margin: 20px auto;
+}
+
+.form-control {
+    background-color: #0A1652;
+    border-color: yellow;
+    color: white;
+    border-radius: 100px !important;
+}
+
+.white-text {
+    color: white;
+    text-decoration: none;
+}
+.panel-body {
+    color: black;
+    padding: 10px;
+}
+
+h3 {
+    margin: 10px 0;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+
+    <div id="twitch-app">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1>Twitch Streamers</h1>
+            </div>
+            <app-streamer v-for="streamer in streamers" :streamer="streamer"></app-streamer>
+
+        </div>
+    </div>
+
+</body>
+<script>
+
+    var cmp = {
+        props: ['streamer'],
+        template: '<div class="panel-body"><div class="row text-center"><div class="col-xs-2 col-sm-1"><img :src="streamer.logo" alt="streamer logo" class="img-circle"></div><div class="col-xs-10 col-sm-3"><a :href="streamer.url">{{ streamer.name }}</a></div><div class="col-xs-10 col-sm-8"><p>{{ streamer.status }}</p></div></div><hr></div>'
+    }
+    
+    new Vue({
+        el: '#twitch-app',
+        data: {
+            streamers: [],
+            channels: [
+                "freecodecamp",
+                "test_channel",
+                "ESL_SC2"
+            ]
+        },
+        created() {
+            this.getStreamers();
+        },
+        methods: {
+            getStreamers() {
+                this.channels.forEach(channel => {
+                    this.$http.jsonp('https://wind-bow.gomix.me/twitch-api/channels/' + channel)
+                        .then(res => {
+                            return res.json();
+                        })
+                        .then(data => {
+                            this.streamers.push(data);
+                        });
+                });
+                console.log(this.streamers);
+            }
+        },
+        components: {
+            'app-streamer': cmp
+        }
+    })
+</script>
+
+</html>

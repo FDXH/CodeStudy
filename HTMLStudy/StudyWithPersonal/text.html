@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        a {
+            display: inline-block;
+        }
+
+        h1 {
+            display: inline-block;
+            color: orange;
+            vertical-align: 8px;
+        }
+
+        #todayWeather strong {
+            color: red;
+            font-size: 20px;
+            margin: 3px;
+        }
+
+        #futureWeather {
+            margin: 0 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- jQuery -->
+    <script src="./js/jquery-3.3.1.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+
+    <div id="web">
+        <div class="panel panel-default text-center" id="header">
+            <div class="panel-body">
+                <a href="https://www.juhe.cn">
+                    <img src="https://www.juhe.cn/themes/v5/public/images/loginlogo.png" alt="聚合数据天气图" class="img-responsive">
+                </a>
+                <h1>天气应用</h1>
+            </div>
+        </div>
+        <div id="todayWeather" class="text-center">
+            <h4><strong>{{ localWeather.city }}</strong>今日天气</h4>
+            <p>日期： {{ localWeather.date_y }}</p>
+            <p>星期：{{ localWeather.week }}</p>
+            <p>温度：{{ localWeather.temperature }}</p>
+            <p>风向及强度：{{ localWeather.wind }}</p>
+            <p>穿衣指数：{{ localWeather.dressing_index }}</p>
+            <p>穿衣建议：{{ localWeather.dressing_advice }}</p>
+            <p>紫外线强度：{{ localWeather.uv_index }}</p>
+            <p>洗车指数：{{ localWeather.wash_index }}</p>
+            <p>旅游指数：{{ localWeather.travel_index }}</p>
+            <p>晨练指数：{{ localWeather.exercise_index }}</p>
+        </div>
+        <hr>
+        <div id="futureWeather">
+            <h4 class="text-center">未来7天天气</h4>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>日期</th>
+                        <th>星期</th>
+                        <th>温度</th>
+                        <th>天气</th>
+                        <th>风向强度</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(f, index) in futureWeathers">
+                        <td>{{ index + 1 }}</td>
+                        <td>{{ f.date }}</td>
+                        <td>{{ f.week }}</td>
+                        <td>{{ f.temperature }}</td>
+                        <td>{{ f.weather }}</td>
+                        <td>{{ f.wind }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el: '#web',
+        data: {
+            localWeather: {
+                city: "昆明",
+                temperature: "", //温度
+                wind: "", // 风向及强度
+                week: "", // 星期
+                date_y: "", // 日期
+                dressing_index: "", // 穿衣指数
+                dressing_advice: "", // 穿衣建议
+                uv_index: "", // 紫外线强度
+                wash_index: "", // 洗车指数
+                travel_index: "", // 旅游指数
+                exercise_index: "", // 晨练指数                          
+            },
+            futureWeathers: [
+                // {
+                //     temperature: "",
+                //     weather: "",
+                //     wind: "",
+                //     week: "",
+                //     date: ""
+                // },
+            ],
+        },
+        created() {
+            this.getLocalWeather();
+        },
+        methods: {
+            getLocalWeather() {
+                this.$http.jsonp("http://v.juhe.cn/weather/index?cityname=%E6%98%86%E6%98%8E&dtype=&format=&key=3e51d1c04cb729d2b327c06e4c3e34d4")
+                    .then(res => {
+                        return res.json();
+                    })
+                    .then(data => {
+                        var futureResult = [];
+                        var todayResult = {};
+                        for (let items in data) {
+                            if (items == "result") {
+                                for (let item in data[items]) {
+                                    if (item == "today"){
+                                        todayResult = data[items][item];
+                                    }
+                                    if (item == "future") {
+                                        for (let key in data[items][item]) {
+                                            futureResult.push(data[items][item][key]);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        this.localWeather = todayResult;
+                        this.futureWeathers = futureResult;
+                    });
+            }
+        },
+    })
+</script>
+
+</html>

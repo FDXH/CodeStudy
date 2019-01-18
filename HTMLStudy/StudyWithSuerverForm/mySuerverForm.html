@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>调查表</title>
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+
+    <h1 class="text-center" id="title">Survey Form</h1>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <p class="panel-title text-center" id="description">Please fill in your personal information</p>
+        </div>
+        <div id="survey-form">
+            <div class="panel-body">
+                <div class="input-group center">
+                    <span class="input-group-addon" id="name-label">* Name :</span>
+                    <input type="text" class="form-control" placeholder="name" aria-describedby="basic-addon1" id="name">
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="input-group center">
+                    <span class="input-group-addon" id="email-label">* Email :</span>
+                    <input type="email" class="form-control" placeholder="email" aria-describedby="basic-addon1" id="email">
+                    <span class="input-group-addon" id="email-suffix">@example.com</span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="input-group center">
+                    <span class="input-group-addon" id="number-label">* Age :</span>
+                    <input type="number" class="form-control" placeholder="Age" aria-describedby="basic-addon1" id="number">
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="occupation-label" class="center">
+                    <span class="subtitle-size"><strong>What is your current occupation?</strong></span>
+                    <select id="dropdown" name="currentPos" class="dropdown" style="margin: 0 0 0 10%; width: 20%;">
+                        <option disabled value>Select an occupation</option>
+                        <option value="student">Student</option>
+                        <option value="job">Full Time Job</option>
+                        <option value="learner">Full Time Learner</option>
+                        <option value="preferNo">Prefer not to say</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="satisfaction-label" class="center">
+                    <span class="subtitle-size"><strong>Are you satisfied with your current life?</strong></span>
+                    <div class="">
+                        <ul style="list-style: none;">
+                            <li class="radio"><label><input name="radio-buttons" value="1" type="radio" class="userRatings">satisfaction</label></li>
+                            <li class="radio"><label><input name="radio-buttons" value="2" type="radio" class="userRatings">general</label></li>
+                            <li class="radio"><label><input name="radio-buttons" value="3" type="radio" class="userRatings">Not
+                                    satisfied</label></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="sports-label" class="center">
+                    <span class="subtitle-size"><strong>What sports do you usually like?(Check all that apply)</strong></span>
+                    <div class="rightTab">
+                        <ul id="preferences" style="list-style: none;">
+                            <li class="checkbox"><label><input name="prefer" value="1" type="checkbox" class="userRatings">
+                                    Running</label></li>
+                            <li class="checkbox"><label><input name="prefer" value="2" type="checkbox" class="userRatings">
+                                    Basketball</label></li>
+                            <li class="checkbox"><label><input name="prefer" value="3" type="checkbox" class="userRatings">
+                                    Football</label></li>
+                            <li class="checkbox"><label><input name="prefer" value="4" type="checkbox" class="userRatings">
+                                    Tennis</label></li>
+                            <li class="checkbox"><label><input name="prefer" value="5" type="checkbox" class="userRatings">
+                                    Volleyball</label></li>
+                            <li class="checkbox"><label><input name="prefer" value="6" type="checkbox" class="userRatings">
+                                    Badminton</label></li>
+                            <li class="checkbox"><label><input name="prefer" value="7" type="checkbox" class="userRatings">
+                                    Swimming</label></li>
+                            <li class="checkbox"><label><input name="prefer" value="8" type="checkbox" class="userRatings">
+                                    Table tennis</label></li>
+                            <li class="checkbox"><label><input name="prefer" value="9" type="checkbox" class="userRatings">
+                                    Other</label></li>
+                            <li class="checkbox"><label><input name="prefer" value="10" type="checkbox" class="userRatings">
+                                    None</label></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="self-panel" class="center">
+                    <div id="self-subscript" class="subtitle-size">
+                        <span><strong>Evaluation of yourself:</strong></span>
+                    </div>
+                    <textarea id="comments" class="input-self" style="height:80px; resize:vertical; margin-left: 5%; " name="comment"
+                        placeholder="Enter your comment here..."></textarea>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" id="button-submit" >Submit</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
